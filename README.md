@@ -22,7 +22,7 @@ In virtual environment:
 
 ## Test html
 
-    make devserver
+    make devserver [PORT=8000]
 
 # License
 
