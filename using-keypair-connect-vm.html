@@ -4,18 +4,30 @@
 
         <title>Openstack中使用Keypair连接到VM</title>
         <meta charset="utf-8" />
+        <link href="http://fengyc.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Full Atom Feed" />
+        <link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Categories Atom Feed" />
 
 
         <!-- Mobile viewport optimized: j.mp/bplateviewport -->
         <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/pygment.css" />
 
-        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+        <script src="http://fengyc.github.io/blog/theme/js/libs/modernizr-2.6.2.min.js"></script>
 
 
+              <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-54175787-1', '');
+                ga('send', 'pageview');
+
+              </script>
 
 
 </head>
@@ -28,14 +40,14 @@
         <div class="row">
 
           <header id="banner" class="body">
-                  <h1><a href="./">Mass 9 <strong></strong></a></h1>
+                  <h1><a href="http://fengyc.github.io/blog/">Mass 9 <strong></strong></a></h1>
           </header><!-- /#banner -->
 
             <div id="navigation" class="navbar row">
               <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
              
               <ul class="columns">
-                <li><a href="./">Home</a></li>
+                <li><a href="http://fengyc.github.io/blog/">Home</a></li>
 
                 <li><a href="/about">About</a></li>
 
@@ -50,7 +62,7 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="./using-keypair-connect-vm.html" rel="bookmark"
+                <a href="http://fengyc.github.io/blog/using-keypair-connect-vm.html" rel="bookmark"
                    title="Permalink to Openstack中使用Keypair连接到VM">Openstack中使用Keypair连接到VM</a></h2>
            
             </header>
@@ -59,7 +71,7 @@
                 三 17 九月 2014
               </abbr>
               <address class="vcard author">By 
-                <a class="url fn" href="./author/yingcai-feng.html"> Yingcai FENG</a>
+                <a class="url fn" href="http://fengyc.github.io/blog/author/yingcai-feng.html"> Yingcai FENG</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
@@ -70,6 +82,18 @@
 <p>密钥对生成之后，在启动实例时，为VM指定一个此密钥对。那么在VM初始化时，当网络初始化完成之后，安装在VM系统里面的初始化工具，向<code>169.254.169.254</code>这个特殊的IP地址，向Openstack请求VM的元数据（metadata），元数据中包含了VM的密钥对中的公钥。然后，初始化工具把此公钥安装到<code>/root/.ssh/authorized_keys</code>中。</p>
 <p>putty可以使用私钥登录到VM上，但需要做一点工作。putty使用的私钥文件格式是<code>.ppk</code>，需要把<code>.pem</code>文件转换为<code>.ppk</code>文件。使用puttygen这个图形化工具，转换的工作十分简单，见<a href="http://winscp.net/eng/docs/ui_puttygen">winscp-puttygen</a>。</p>
             </div><!-- /.entry-content -->
+            <div class="comments">
+              <h3>Comments</h3>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_identifier = "using-keypair-connect-vm.html";
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://zenmass.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
 
 
         </div><!-- /.eleven.columns -->
@@ -84,7 +108,7 @@
 
 <h4>Categories</h4>
 <ul>
-		<li><a href="./category/blog.html">blog</a></li>
+		<li><a href="http://fengyc.github.io/blog/category/blog.html">blog</a></li>
 </ul>
 
 
@@ -142,8 +166,17 @@
     </div>
 
 
-  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="./theme/js/libs/gumby.min.js"></script>
-  <script src="./theme/js/plugins.js"></script>
+<script type="text/javascript">
+    var disqus_shortname = 'zenmass';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/gumby.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/plugins.js"></script>
 </body>
 </html>
