@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'https://fengyc.github.com/blog'
+SITEURL = u'http://fengyc.github.io/blog'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
@@ -20,5 +20,8 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
+DISQUS_SITENAME = "zenmass"
+GOOGLE_ANALYTICS = "UA-54175787-1"
+
+GOOGLE_ANALYTICS_ID = "UA-54175787-1"
+GOOGLE_ANALYTICS_NAME= "zenmass"

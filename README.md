@@ -2,7 +2,7 @@
 
 This is a blog project.
 
-# How to start
+# Quick start
 
 ## Install virtualenv and requirements
 
@@ -19,6 +19,10 @@ On ubuntu:
 In virtual environment:
 
     make html
+
+## Test html
+
+    make devserver
 
 # License
 
