@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>参与 github 开源项目开发</title>
+        <meta charset="utf-8" />
+        <link href="http://fengyc.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Full Atom Feed" />
+        <link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Categories Atom Feed" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/pygment.css" />
+
+        <script src="http://fengyc.github.io/blog/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+              <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-54175787-1', '');
+                ga('send', 'pageview');
+
+              </script>
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="http://fengyc.github.io/blog/">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="http://fengyc.github.io/blog/">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="http://fengyc.github.io/blog/fork-github-project.html" rel="bookmark"
+                   title="Permalink to 参与 github 开源项目开发">参与 github 开源项目开发</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2015-07-13T21:20:00+08:00">
+                一 13 七月 2015
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="http://fengyc.github.io/blog/author/yingcai-feng.html"> Yingcai FENG</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>开源是一种态度，只要想参与，都可以向开源社区贡献力量。参与到开源并不只是提交代码，还可以以很多方式参与，如提交 bug ，给出建议，帮助更新文档，协助进行本地化等等。再加上现在有 github 这样方便的工具，参与到开源其实是很简单的事情。</p>
+<p>github 上有很多的开源项目，并提供一些辅助的工具来帮助项目发展，如 Issues 、 Pull requests 、 Wiki 、 GitHub Pages 等等。</p>
+<p>github 使用 git 作为 VCS 系统。如果想向项目贡献代码，还是需要了解 git 的基本使用，最好还了解 gitflow、gerrit 等等周边工具，很多项目会同时使用这些工具来作为分支流程管理标准和代码审核、bug跟踪管理等等。</p>
+<p>github 上通过 fork 克隆一个项目到自己的 github 库，然后自己用 git 下载下来修改，修改完毕后，更新到 github 上。然后可以通过创建一个 Pull request 给项目维护者，让维护者把你的代码合并进项目里面。</p>
+<p>具体的操作如下：</p>
+<div class="highlight"><pre>&lt;fork 代码库&gt;
+git clone &lt;你的代码库 URL&gt;
+&lt;修改&gt;
+git commit -a &#39;&lt;修改信息&gt;&#39;
+git push
+&lt;创建 pull request&gt;
+</pre></div>
+
+
+<p>如果修改的时间很长，这个时候可能原始代码库已有其他人的更新，因此需要把其他人的更新合并到自己的代码库中。首先要把原始代码库作为 git 的远程库，通常这个远程库以 upstream 为名字:</p>
+<div class="highlight"><pre>git remote add upstream &lt;原始代码库 URL&gt;
+</pre></div>
+
+
+<p>然后，取得 upstream 的更新：</p>
+<div class="highlight"><pre>git fetch upstream
+</pre></div>
+
+
+<p>并合并到当前分支，以 origin/master 为例：</p>
+<div class="highlight"><pre>git merge upstream/master origin/master
+git push
+</pre></div>
+
+
+<p>一般来说，建议以 ssh + 非对称密钥 方式访问 git，这样安全性比较高，同时不需要在 push 时输入口令，相对方便一点。</p>
+<p>ssh + 非对称密钥的方法也很简单。首先，生成一对公私钥：</p>
+<div class="highlight"><pre>ssh-keygen -t rsa -C &#39;&lt;你的邮箱&gt;&#39;
+</pre></div>
+
+
+<p>生成的公私钥在 <code>~/.ssh/id_rsa</code> <code>~/.ssh/id_rsa.pub</code> 中。然后在github的账户设置SSH-keys中，把 <code>~/.ssh/id_rsa.pub</code> 的内容拷贝到一个新的 ssh key。并使用以下的命令测试是否成功：</p>
+<div class="highlight"><pre>ssh -T git@github.com
+</pre></div>
+
+
+<p>测试成功时，会显示：</p>
+<div class="highlight"><pre>Hi &lt;xxx&gt;! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</pre></div>
+            </div><!-- /.entry-content -->
+            <div class="comments">
+              <h3>Comments</h3>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_identifier = "fork-github-project.html";
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://zenmass.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="http://fengyc.github.io/blog/category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'zenmass';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/gumby.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/plugins.js"></script>
+</body>
+</html>

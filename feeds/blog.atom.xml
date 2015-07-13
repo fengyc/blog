@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mass 9</title><link href="http://fengyc.github.io/blog/" rel="alternate"></link><link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" rel="self"></link><id>http://fengyc.github.io/blog/</id><updated>2015-07-13T10:30:00+08:00</updated><entry><title>博客地址变动</title><link href="http://fengyc.github.io/blog/blog-address-move.html" rel="alternate"></link><updated>2015-07-13T10:30:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-13:blog/blog-address-move.html</id><summary type="html">&lt;p&gt;博客地址变动了，现在转移到以一个blog project形式上，因此地址会变成:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mass 9</title><link href="http://fengyc.github.io/blog/" rel="alternate"></link><link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" rel="self"></link><id>http://fengyc.github.io/blog/</id><updated>2015-07-13T21:20:00+08:00</updated><entry><title>参与 github 开源项目开发</title><link href="http://fengyc.github.io/blog/fork-github-project.html" rel="alternate"></link><updated>2015-07-13T21:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-13:blog/fork-github-project.html</id><summary type="html">&lt;p&gt;开源是一种态度，只要想参与，都可以向开源社区贡献力量。参与到开源并不只是提交代码，还可以以很多方式参与，如提交 bug ，给出建议，帮助更新文档，协助进行本地化等等。再加上现在有 github 这样方便的工具，参与到开源其实是很简单的事情。&lt;/p&gt;
+&lt;p&gt;github 上有很多的开源项目，并提供一些辅助的工具来帮助项目发展，如 Issues 、 Pull requests 、 Wiki 、 GitHub Pages 等等。&lt;/p&gt;
+&lt;p&gt;github 使用 git 作为 VCS 系统。如果想向项目贡献代码，还是需要了解 git 的基本使用，最好还了解 gitflow、gerrit 等等周边工具，很多项目会同时使用这些工具来作为分支流程管理标准和代码审核、bug跟踪管理等等。&lt;/p&gt;
+&lt;p&gt;github 上通过 fork 克隆一个项目到自己的 github 库，然后自己用 git 下载下来修改，修改完毕后，更新到 github 上。然后可以通过创建一个 Pull request 给项目维护者，让维护者把你的代码合并进项目里面。&lt;/p&gt;
+&lt;p&gt;具体的操作如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&amp;lt;fork 代码库&amp;gt;
+git clone &amp;lt;你的代码库 URL&amp;gt;
+&amp;lt;修改&amp;gt;
+git commit -a &amp;#39;&amp;lt;修改信息&amp;gt;&amp;#39;
+git push
+&amp;lt;创建 pull request&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果修改的时间很长，这个时候可能原始代码库已有其他人的更新，因此需要把其他人的更新合并到自己的代码库中。首先要把原始代码库作为 git 的远程库，通常这个远程库以 upstream 为名字:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git remote add upstream &amp;lt;原始代码库 URL&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，取得 upstream 的更新：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git fetch upstream
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;并合并到当前分支，以 origin/master 为例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git merge upstream/master origin/master
+git push
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;一般来说，建议以 ssh + 非对称密钥 方式访问 git，这样安全性比较高，同时不需要在 push 时输入口令，相对方便一点。&lt;/p&gt;
+&lt;p&gt;ssh + 非对称密钥的方法也很简单。首先，生成一对公私钥：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ssh-keygen -t rsa -C &amp;#39;&amp;lt;你的邮箱&amp;gt;&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成的公私钥在 &lt;code&gt;~/.ssh/id_rsa&lt;/code&gt; &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt; 中。然后在github的账户设置SSH-keys中，把 &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt; 的内容拷贝到一个新的 ssh key。并使用以下的命令测试是否成功：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ssh -T git@github.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;测试成功时，会显示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Hi &amp;lt;xxx&amp;gt;! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="blog  github"></category></entry><entry><title>博客地址变动</title><link href="http://fengyc.github.io/blog/blog-address-move.html" rel="alternate"></link><updated>2015-07-13T10:30:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-13:blog/blog-address-move.html</id><summary type="html">&lt;p&gt;博客地址变动了，现在转移到以一个blog project形式上，因此地址会变成:&lt;/p&gt;
 &lt;p&gt;https://fengyc.github.io/blog/&lt;/p&gt;</summary><category term="blog"></category></entry><entry><title>在Ubuntu中安装WPS</title><link href="http://fengyc.github.io/blog/install-wps-in-ubuntu.html" rel="alternate"></link><updated>2014-09-20T15:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-20:blog/install-wps-in-ubuntu.html</id><summary type="html">&lt;p&gt;WPS的官网上已经提供了.deb安装包，但是只有32位的版本，目前还没有64位的版本。现在的电脑配置基本上都超4G内存了，使用64位的系统才能更好地利用更多内存，现在的Linux大部分都使用64位了。尽管WPS还没有推出64位的版本，但能在Linux上发行，已经是很大的进步。&lt;/p&gt;
 &lt;p&gt;64位的系统要安装32位的软件，还需要动动脑筋。原来Ubuntu是提供一个&lt;code&gt;ia32-libs&lt;/code&gt;安装包，把32位系统所需要的软件包都一起装了。在14.04上，并没有在官方的源中找到这个包。&lt;/p&gt;
 &lt;p&gt;然而，尝试了一下之后，发现还是能把WPS装上。过程如下：&lt;/p&gt;
