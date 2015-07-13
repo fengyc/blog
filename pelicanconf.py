@@ -34,7 +34,7 @@ SOCIAL = (('Weibo', 'http://weibo.com/fyingcai/'),
 
 GITHUB_URL = 'https://github.com/fengyc/'
 
-MENUITEMS = (("About","/about"),)
+MENUITEMS = (("About","/blog/about"),)
 
 DEFAULT_PAGINATION = 10
 
