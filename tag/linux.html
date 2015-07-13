@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>Mass 9 - linux</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="../theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="../theme/pygment.css" />
+
+        <script src="../theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="../">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="../">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content">
+
+
+
+   <div class="row">
+
+
+        <div class="eleven columns">
+                 <ol id="post-list">
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../install-rabbitvcs-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装RabbitVCS">在Ubuntu中安装RabbitVCS</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-18T15:56:00+08:00"> 四 18 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>RabbitVCS是Linux下的图形化版本管理软件，支持SVN/GIT，官网是<a href="http://www.rabbitvcs.org/">rabbitvcs.org</a>，PPA网站是<a href="https://launchpad.net/~rabbitvcs/+archive/ubuntu/ppa">rabbitvcs-ppa</a>。</p>
+<p>RabbitVCS的操作很像Windows下的小乌龟:-)，支持把操作集成到图形界面的右键菜单中，与TortoiseSVN是同样的，非常方便。</p>
+<p>安装的方法在PPA站点上有介绍，根据自己的系统的版本，把源加入到系统中，在14.04中，示例为：</p>
+<div class="highlight"><pre><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/etc/apt/sources.list.d/rabbitvcs.list</span> <span class="err">&lt;&lt;EOF</span>
+<span class="k">deb</span> <span class="s">http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu</span> <span class="kp">trusty</span> <span class="kp">main</span>
+<span class="err">EOF</span>
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../install-rabbitvcs-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装RabbitVCS">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../install-oracle-jdk-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装Oracle JDK">在Ubuntu中安装Oracle JDK</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-18T13:02:00+08:00"> 四 18 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>尽管OpenJDK发展到现在已经能兼容绝大多数的标准Java应用场景，但是在某些微小的方面，仍然存在一点小问题。在Ubuntu中安装的Eclipse，使用OpenJDK时，使用内置的浏览器会有点问题，因此，我需要转换到Oracle的JDK。</p>
+<p>可以手工安装OracleJDK，比较烦琐。可以通过已打包好的PPA，进行安装：</p>
+<div class="highlight"><pre>add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+</pre></div>
+
+
+<p>webupd8的官方网站为<a href="http://www.webupd8.org/">webupd8.org</a>。他们提供了一系列的软件包，见<a href="http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html">packages</a>。</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../install-oracle-jdk-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装Oracle JDK">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                            <a class="danger label" href="../tag/java.html">java</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../useful-linux-network-config.html" rel="bookmark" title="Permalink to Linux网络配置">Linux网络配置</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-13T20:20:00+08:00"> 六 13 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h2>Ubuntu停用Network Manager</h2>
+<p>Desktop版本的Ubuntu，使用Network Manager来进行网络管理，它会导致在<code>/etc/network/interface</code>中的设置不生效。由于在进行一些网络功能的开发时，需要用到<code>/etc/network/interface</code>文件管理网络，需要停用Network Manager。</p>
+<div class="highlight"><pre>service network-manager stop
+</pre></div>
+
+
+<p>并向<code>/etc/network/interface</code>中写入具体的配置</p>
+<div class="highlight"><pre>cat&gt;&gt;/etc/network/interface&lt;&lt;EOF
+auto eth0
+iface eth0 inet static
+address 192.168 ...</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../useful-linux-network-config.html" rel="bookmark" title="Permalink to Linux网络配置">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../useful-linux-commands.html" rel="bookmark" title="Permalink to 常用Linux命令">常用Linux命令</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-13T13:57:00+08:00"> 六 13 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>本文整理一些常用的Linux命令，以及shell编程中使用到常用语句。</p>
+<h2>shell中判断</h2>
+<p>使用<code>if</code>进行判断</p>
+<div class="highlight"><pre>if [ &lt;condition&gt; ]; then
+    # Do something
+fi
+</pre></div>
+
+
+<p>包含多个分支，使用<code>if-elif</code></p>
+<div class="highlight"><pre>if [ &lt;condition&gt; ]; then
+    # Do something
+elif [ &lt;condition&gt; ]; then
+    # Do somethin
+fi
+</pre></div>
+
+
+<h2>watch查看命令多次执行的结果</h2>
+<p>watch能多次执行命令，并把命令的结果显示出来，支持每隔n秒执行一次命令，并把执行结果的差异显示。</p>
+<div class="highlight"><pre>watch -n &lt;seconds&gt; -d &lt;commands&gt;
+</pre></div>
+
+
+<h2>tar压缩打包</h2>
+<p>常用的tar参数包括：</p>
+<ul>
+<li><code>-c</code> 创建包 ...</li></ul> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../useful-linux-commands.html" rel="bookmark" title="Permalink to 常用Linux命令">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                            <a class="danger label" href="../tag/shell.html">shell</a>
+                                </div>
+
+
+
+                        </article></li>
+                </ol><!-- /#posts-list -->
+
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="../category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="../theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="../theme/js/libs/gumby.min.js"></script>
+  <script src="../theme/js/plugins.js"></script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mass 9</title><link href="http://fengyc.github.io/blog/" rel="alternate"></link><link href="http://fengyc.github.io/blog/feeds/yingcai-feng.atom.xml" rel="self"></link><id>http://fengyc.github.io/blog/</id><updated>2014-09-20T15:20:00+08:00</updated><entry><title>在Ubuntu中安装WPS</title><link href="http://fengyc.github.io/blog/install-wps-in-ubuntu.html" rel="alternate"></link><updated>2014-09-20T15:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-20:blog/install-wps-in-ubuntu.html</id><summary type="html">&lt;p&gt;WPS的官网上已经提供了.deb安装包，但是只有32位的版本，目前还没有64位的版本。现在的电脑配置基本上都超4G内存了，使用64位的系统才能更好地利用更多内存，现在的Linux大部分都使用64位了。尽管WPS还没有推出64位的版本，但能在Linux上发行，已经是很大的进步。&lt;/p&gt;
+&lt;p&gt;64位的系统要安装32位的软件，还需要动动脑筋。原来Ubuntu是提供一个&lt;code&gt;ia32-libs&lt;/code&gt;安装包，把32位系统所需要的软件包都一起装了。在14.04上，并没有在官方的源中找到这个包。&lt;/p&gt;
+&lt;p&gt;然而，尝试了一下之后，发现还是能把WPS装上。过程如下：&lt;/p&gt;
+&lt;p&gt;首先，到&lt;a href="http://community.wps.cn/download/"&gt;wps&lt;/a&gt;网站上下载wps，我下载了&lt;code&gt;wps-office_9.1.0.4751~a15_i386.deb&lt;/code&gt;。并下载字体包 &lt;code&gt;wps-office-fonts_1.0_all.deb&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;现在，开启32位支持：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg --add-architecture i386
+apt-get update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，直接尝试安装WPS：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg -i wps-office_9.1.0.4751~a15_i386.deb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装过程会报错，但是WPS还是安装了，然后用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get -f install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;会把WPS依赖的32位的软件包安装上去。那么，继续安装字体包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg -i wps-office-fonts_1.0_all.deb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;完成后，就可以使用WPS了。&lt;/p&gt;</summary><category term="blog"></category></entry><entry><title>在Ubuntu中安装RabbitVCS</title><link href="http://fengyc.github.io/blog/install-rabbitvcs-in-ubuntu.html" rel="alternate"></link><updated>2014-09-18T15:56:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-18:blog/install-rabbitvcs-in-ubuntu.html</id><summary type="html">&lt;p&gt;RabbitVCS是Linux下的图形化版本管理软件，支持SVN/GIT，官网是&lt;a href="http://www.rabbitvcs.org/"&gt;rabbitvcs.org&lt;/a&gt;，PPA网站是&lt;a href="https://launchpad.net/~rabbitvcs/+archive/ubuntu/ppa"&gt;rabbitvcs-ppa&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;RabbitVCS的操作很像Windows下的小乌龟:-)，支持把操作集成到图形界面的右键菜单中，与TortoiseSVN是同样的，非常方便。&lt;/p&gt;
+&lt;p&gt;安装的方法在PPA站点上有介绍，根据自己的系统的版本，把源加入到系统中，在14.04中，示例为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;cat&lt;/span&gt; &lt;span class="err"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;/etc/apt/sources.list.d/rabbitvcs.list&lt;/span&gt; &lt;span class="err"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu&lt;/span&gt; &lt;span class="kp"&gt;trusty&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt;
+&lt;span class="err"&gt;EOF&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="tech"></category><category term="linux"></category></entry><entry><title>在Ubuntu中安装Oracle JDK</title><link href="http://fengyc.github.io/blog/install-oracle-jdk-in-ubuntu.html" rel="alternate"></link><updated>2014-09-18T13:02:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-18:blog/install-oracle-jdk-in-ubuntu.html</id><summary type="html">&lt;p&gt;尽管OpenJDK发展到现在已经能兼容绝大多数的标准Java应用场景，但是在某些微小的方面，仍然存在一点小问题。在Ubuntu中安装的Eclipse，使用OpenJDK时，使用内置的浏览器会有点问题，因此，我需要转换到Oracle的JDK。&lt;/p&gt;
+&lt;p&gt;可以手工安装OracleJDK，比较烦琐。可以通过已打包好的PPA，进行安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;webupd8的官方网站为&lt;a href="http://www.webupd8.org/"&gt;webupd8.org&lt;/a&gt;。他们提供了一系列的软件包，见&lt;a href="http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html"&gt;packages&lt;/a&gt;。&lt;/p&gt;</summary><category term="tech"></category><category term="linux"></category><category term="java"></category></entry><entry><title>Openstack中使用Keypair连接到VM</title><link href="http://fengyc.github.io/blog/using-keypair-connect-vm.html" rel="alternate"></link><updated>2014-09-17T14:33:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-17:blog/using-keypair-connect-vm.html</id><summary type="html">&lt;p&gt;通常，系统的用户名和密码都是安装过程中指定的，然后通过安全的渠道交到最终使用者的手中。这种传统的方式在进行大规模的服务器管理时就非常麻烦，因为每台机器都需要指定用户名和密码，导致需要管理的密码数量非常庞大。如果需要更改密码，还需要逐个来修改！！&lt;/p&gt;
+&lt;p&gt;在云计算中无法使用这种方式来管理虚拟机系统。镜像的开发者无法得知谁是最终的用户，最终用户无法确保开发者会不会用默认的用户名和密码来干坏事。&lt;/p&gt;
+&lt;p&gt;因此，云计算普通会采用一种在系统第一次运行时把用户名密码注入到系统的办法，Openstack与Amazon的AWS都使用这样的办法来管理，但是不是通过用户名密码，而是通过一对密钥对。密钥对是用户自己生成的，可以在多台服务器上使用，用户使用私钥连接到各个服务器。&lt;/p&gt;
+&lt;p&gt;在Openstack Dashboard上，生成一对KeyPair。公钥保存在Openstack上，私钥在生成时直接下载到用户本地。Openstack的私钥保存为一个.pem文件。&lt;/p&gt;
+&lt;p&gt;密钥对生成之后，在启动实例时，为VM指定一个此密钥对。那么在VM初始化时，当网络初始化完成之后，安装在VM系统里面的初始化工具，向&lt;code&gt;169.254.169.254&lt;/code&gt;这个特殊的IP地址，向Openstack请求VM的元数据（metadata），元数据中包含了VM的密钥对中的公钥。然后，初始化工具把此公钥安装到&lt;code&gt;/root/.ssh/authorized_keys&lt;/code&gt;中。&lt;/p&gt;
+&lt;p&gt;putty可以使用私钥登录到VM上，但需要做一点工作。putty使用的私钥文件格式是&lt;code&gt;.ppk&lt;/code&gt;，需要把&lt;code&gt;.pem&lt;/code&gt;文件转换为&lt;code&gt;.ppk&lt;/code&gt;文件。使用puttygen这个图形化工具，转换的工作十分简单，见&lt;a href="http://winscp.net/eng/docs/ui_puttygen"&gt;winscp-puttygen&lt;/a&gt;。&lt;/p&gt;</summary><category term="tech"></category><category term="openstack"></category></entry><entry><title>使用devstack部署openstack环境</title><link href="http://fengyc.github.io/blog/use-devstack-deploy-openstack.html" rel="alternate"></link><updated>2014-09-14T21:55:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-14:blog/use-devstack-deploy-openstack.html</id><summary type="html">&lt;p&gt;devstack是一套openstack的部署脚本，对openstack初学者而言，是最好不过的openstack部署脚本了。&lt;/p&gt;
+&lt;p&gt;devstack的官方网站为&lt;code&gt;devstack.org&lt;/code&gt;。官方网站上已经对devstack的用途有介绍，这里介绍一下我在测试中使用到的一些注意问题。&lt;/p&gt;
+&lt;p&gt;devstack整套脚本放在github中，使用下面的命令clone到本地：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/openstack-dev/devstack.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;下载完成后，需要进行一个简单的配置的，在官网中给出了一个最小的配置&lt;a href="http://devstack.org/configuration.html" title="Devstack minimal configuration"&gt;devstack-mini-config&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;然后，进入到目录中，以&lt;strong&gt;普通用户&lt;/strong&gt;的权限执行stack.sh，进行openstack的安装。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd devstack &amp;amp;&amp;amp; ./stack.sh
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="tech"></category><category term="openstack"></category></entry><entry><title>Linux网络配置</title><link href="http://fengyc.github.io/blog/useful-linux-network-config.html" rel="alternate"></link><updated>2014-09-13T20:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-13:blog/useful-linux-network-config.html</id><summary type="html">&lt;h2&gt;Ubuntu停用Network Manager&lt;/h2&gt;
+&lt;p&gt;Desktop版本的Ubuntu，使用Network Manager来进行网络管理，它会导致在&lt;code&gt;/etc/network/interface&lt;/code&gt;中的设置不生效。由于在进行一些网络功能的开发时，需要用到&lt;code&gt;/etc/network/interface&lt;/code&gt;文件管理网络，需要停用Network Manager。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;service network-manager stop
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;并向&lt;code&gt;/etc/network/interface&lt;/code&gt;中写入具体的配置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat&amp;gt;&amp;gt;/etc/network/interface&amp;lt;&amp;lt;EOF
+auto eth0
+iface eth0 inet static
+address 192.168.0.128
+netmask 255.255.255.0
+gateway 192.168.0.1
+dns-nameservers 192.168.0.1
+EOF
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，使用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ifdown --exclude=lo -a &amp;amp;&amp;amp; ifup --exclude=lo -a
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;把网络重启。&lt;/p&gt;
+&lt;h2&gt;为网卡增加配置多个IP&lt;/h2&gt;
+&lt;p&gt;为了区分各个网络，需要使用多个网段。而在只有一个网卡的时候，就需要为这个网卡配置多个IP。实现的手段有两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;配置虚拟网络接口&lt;br /&gt;
+在&lt;code&gt;/etc/network/interface&lt;/code&gt;中，增加类似&lt;code&gt;eth0:1&lt;/code&gt;的接口，如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;auto eth0:1
+iface eth0:1 inet static
+address a.b.c.d
+netmask a.b.c.d
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过&lt;code&gt;ip addr add&lt;/code&gt;命令&lt;br /&gt;
+&lt;code&gt;ip addr add&lt;/code&gt;命令在网卡上增加一个地址，如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ip addr add 192.168.0.128/24 dev eth0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Linux中DNS配置&lt;/h2&gt;
+&lt;p&gt;一般，应该通过&lt;code&gt;/etc/network/interface&lt;/code&gt;文件设置&lt;code&gt;dns-nameservers&lt;/code&gt;来配置，&lt;code&gt;interface&lt;/code&gt;文件中的配置，会被解析并自动更新到&lt;code&gt;/etc/resolv.conf&lt;/code&gt;文件中。&lt;/p&gt;
+&lt;p&gt;如果需要临时修改DNS配置，也可以直接把DNS写入到&lt;code&gt;resolv.conf&lt;/code&gt;中，如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;echo &amp;#39;nameserver 8.8.4.4&amp;#39; &amp;gt;&amp;gt; /etc/resolv.conf
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="tech"></category><category term="linux"></category></entry><entry><title>常用Linux命令</title><link href="http://fengyc.github.io/blog/useful-linux-commands.html" rel="alternate"></link><updated>2014-09-13T13:57:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-13:blog/useful-linux-commands.html</id><summary type="html">&lt;p&gt;本文整理一些常用的Linux命令，以及shell编程中使用到常用语句。&lt;/p&gt;
+&lt;h2&gt;shell中判断&lt;/h2&gt;
+&lt;p&gt;使用&lt;code&gt;if&lt;/code&gt;进行判断&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;if [ &amp;lt;condition&amp;gt; ]; then
+    # Do something
+fi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;包含多个分支，使用&lt;code&gt;if-elif&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;if [ &amp;lt;condition&amp;gt; ]; then
+    # Do something
+elif [ &amp;lt;condition&amp;gt; ]; then
+    # Do somethin
+fi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;watch查看命令多次执行的结果&lt;/h2&gt;
+&lt;p&gt;watch能多次执行命令，并把命令的结果显示出来，支持每隔n秒执行一次命令，并把执行结果的差异显示。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;watch -n &amp;lt;seconds&amp;gt; -d &amp;lt;commands&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;tar压缩打包&lt;/h2&gt;
+&lt;p&gt;常用的tar参数包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-c&lt;/code&gt; 创建包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-x&lt;/code&gt; 解包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt; 显示处理的文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-z&lt;/code&gt; gzip格式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-j&lt;/code&gt; bzip2格式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-f&lt;/code&gt; 文档名，后面应立即使用包文档路径参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;tar -xvf a.tar.gz
+tar -zcvf a.tar.gz  a/
+tar -jcvf a.tar.bz2 a/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;scp远程拷贝&lt;/h2&gt;
+&lt;p&gt;为了把远程服务器上的内容拷贝下来，首先需要在远程服务器上安装ssh服务，然后在本地使用&lt;code&gt;scp&lt;/code&gt;命令通过ssh把内容拷贝下来。&lt;code&gt;scp&lt;/code&gt;命令与&lt;code&gt;cp&lt;/code&gt;的操作类似：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;scp -r &amp;lt;username@server:/server_path&amp;gt; &amp;lt;local_path&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中&lt;code&gt;-r&lt;/code&gt;表示recursive，用于拷贝目录。需要把本地内容拷贝到服务器，则把两个路径调换位置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;scp -r &amp;lt;localpath&amp;gt; &amp;lt;username@server:/server_path&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="tech"></category><category term="linux"></category><category term="shell"></category></entry><entry><title>Windows桌面共享2</title><link href="http://fengyc.github.io/blog/windowns-desktop-sharing-2.html" rel="alternate"></link><updated>2014-09-01T23:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-09-01:blog/windowns-desktop-sharing-2.html</id><summary type="html">&lt;p&gt;经过一天的尝试，使用Windows Desktop Sharing API写了一点原型代码，并运行起来查看效果。&lt;/p&gt;
+&lt;p&gt;我是使用C#来调用这个API的（本身是COM，可以由Visual Studio自动添加包装）。原型系统的代码分为服务器端（Sharer）和客户端（Attendee）,只是简单地把整个桌面全部共享出来。下面，是一些编程中的核心的内容。&lt;/p&gt;
+&lt;h2&gt;Sharer端&lt;/h2&gt;
+&lt;p&gt;在Sharer端，首先要引入API的COM，名称为&lt;code&gt;rdpcomapi 1.0 Type Library&lt;/code&gt;，文件路径为&lt;code&gt;C:\Windows\System32\rdpencom.dll&lt;/code&gt;。在引入的同时，Visual Studio会自动把这个COM进行包装，从而在项目的引用中可看到&lt;code&gt;RDPCOMAPILib&lt;/code&gt;这个库，而查看其属性，会看到路径为项目某个目录下的&lt;code&gt;Interop.RDPCOMAPILib.dll&lt;/code&gt;。在引入之后，可通过Visual Studio的对象查看器，查看这个dll里面包含的内容。&lt;/p&gt;
+&lt;p&gt;Sharer端，以&lt;code&gt;RDPSession&lt;/code&gt;接口为突破口，其它的操作都围绕这个接口进行。首先，创建接口的实例（在测试中，Sharer端只用了一个实例）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;private RDPSession rdpSession = new RDPSessionClass();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，就需要在这个实例正式开始连接之前，做初始化的准备，比如属性设置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rdpSession.Properties[&amp;quot;DrvConAttach&amp;quot;] = false;
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面是在1:M的模式下，微软建议使用mirror driver静态加载模式，具体请查看MSDN的相关内容。&lt;/p&gt;
+&lt;p&gt;Desktop Sharing支持应用程序和窗口过滤，只需要在RDPSession中进行简单的设置，即可以把不需要的共享的应用程序和窗口屏蔽。根据MSDN上的说法，这个过程分成两种，如果应用程序被共享，那么它的窗口不管是什么共享状态，都会被共享；如果应用程序被禁止共享，那么则要根据窗口的共享状态来决定是否共享。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rdpSession.ApplicationFilter.Enabled = true;
+RDPSRAPIApplicationList appList = rdpSession.ApplicationFilter.Applications;
+RDPSRAPIWindowList windownList = rdpSession.ApplicationFilter.Windows;
+……
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上内容进行应用程序和窗口过滤。&lt;/p&gt;
+&lt;p&gt;还可以对一系列的事件进行监听，对Attendee连接、应用状态变化、窗口状态变化等等，进行事件处理，具体的通过&lt;code&gt;RDPSession.On*&lt;/code&gt;来处理。&lt;/p&gt;
+&lt;p&gt;完成初始化之后，通过&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rdpSession.Open()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;正式开启共享会话。在Win7上，这时会提示&lt;code&gt;正在运行的程序与windows 的某些可视元素不兼容&lt;/code&gt;，我怀疑这是mirror driver的问题，我调试时查看了&lt;code&gt;rdpSession.colordepth&lt;/code&gt;，发现只有24位。&lt;/p&gt;
+&lt;p&gt;此后，就需要通过创建&lt;code&gt;Invitation&lt;/code&gt;，建立会话邀请：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;RDPSRAPIInvitation invitation = rdpSession.Invitations.CreateInvitation(&amp;quot;123&amp;quot;, &amp;quot;123&amp;quot;, &amp;quot;123&amp;quot;, 1);
+string connString = invitation.ConnectionString;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ConnectionString是一个简单xml格式的字符串，包含了Sharer主机多个IP信息，还有一个类似于一次性邀请码之类的字符串。ConnectionString最好是能自动传递，避免人工输入时出错。Attendee端在加入到会话时，需要到这个字符串。&lt;/p&gt;
+&lt;h2&gt;Attendee端&lt;/h2&gt;
+&lt;p&gt;Attendee端的工作相对简单一点。&lt;/p&gt;
+&lt;p&gt;首先，Attendee端要引入AxRDPViewer控件。在Visual Studio的&lt;code&gt;工具箱&lt;/code&gt;窗口，右键-&amp;gt;选择项，找到AxRDPViewer控件，加入到&lt;code&gt;工具箱&lt;/code&gt;中。&lt;/p&gt;
+&lt;p&gt;直接把AxRDPViewer控件拉到一个窗口，设置名字为rdpViewer。&lt;/p&gt;
+&lt;p&gt;按照Sharer的设置，rdpViewer也需要设置相关的properties，如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rdpViewer.Properties[&amp;quot;PortId&amp;quot;] = 4580;
+rdpViewer.Properties[&amp;quot;PortProtocol&amp;quot;] = 2;
+……
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果需要监听会话事件，与Sharer端一样，设置相应的&lt;code&gt;rdpView.On*&lt;/code&gt;处理事件。&lt;/p&gt;
+&lt;h2&gt;性能和评估&lt;/h2&gt;
+&lt;p&gt;Win7下的RDP，有专门的mirror driver驱动，性能比普通的截图方式要好很多。在使用普通的办公软件的话，如果没有大规模的刷新，大概占用20-40KB/S左右。但是遇到像播放视频这种，是需要到很大的带宽的。试过一个高清的视频，分辨率为1024x576，播放时占用了5-6MB/S左右，这也是没有办法的事:-(&lt;/p&gt;
+&lt;p&gt;目前，我并没有找到Desktop Sharing的组播或广播方式。如果只能以点对点进行桌面共享，是无法适应大规模的演示、上课等需求的。国内这方面的公开资料并不多，可能都是各家厂商的核心技术所在。看到一些帖子，说是通过GDI勾子或者是mirror driver的方式实现，原理上感觉还算是靠谱。&lt;/p&gt;
+&lt;p&gt;利用这个功能，还是可以做一个简单的小组共享软件，在人数不多的情况下，效果还可以。我准备有空的时间弄一个玩玩。&lt;/p&gt;
+&lt;p&gt;真正要实现大规模的桌面共享，看来还需要看看mirror driver相关的内容，需要自己手工截图进行，进行UDP广播。带有Desktop Sharing的Windows，都会有RDP Encoder Mirror Driver，可以试着用一用，具体看&lt;a href="http://www.codeproject.com/Articles/716128/Using-RDP-Encoder-Mirror-Driver-to-Capture-Screen" title="使用RDP的Mirror Driver"&gt;Using "RDP Encoder Mirror Driver" to Capture Screen&lt;/a&gt;。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Yingcai FENG at SYSU&lt;/p&gt;</summary><category term="tech"></category><category term="windows"></category><category term="C#"></category></entry><entry><title>Windows桌面共享</title><link href="http://fengyc.github.io/blog/windows-desktop-sharing.html" rel="alternate"></link><updated>2014-08-29T21:00:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-29:blog/windows-desktop-sharing.html</id><summary type="html">&lt;p&gt;最近在做一个windows桌面共享的项目，找了一系列的方法：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;视频广播方式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;视频广播方式可能是最具备跨平台特性的方式。在本地程序录制桌面的视频，或者基于硬件直接录制然后播放，然后实时发送到各个客户端。这种思想有很多的实现方式，而且整个结构很容易理解和扩展。&lt;/p&gt;
+&lt;p&gt;录制的方式，总结了一下，找到下面的录制方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;windows GDI 截图&lt;/li&gt;
+&lt;li&gt;directShow 直接录制&lt;/li&gt;
+&lt;li&gt;mirror driver 或 mini port 驱动录制&lt;/li&gt;
+&lt;li&gt;ffmpeg 录制 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了降低分享桌面的主机的负载，可以引入特定的视频广播服务器，由服务器进行视频转发。具体的协议可通过udp/rtsp等实现。&lt;/p&gt;
+&lt;p&gt;这种方式具备与平台无关的特性，视频录制方式可随时扩展，而通过标准的接口把数据提交到转发服务器。但实现起来，需要做的工作也很多，需要理解基本的视频处理知识，实现一个良好的系统框架。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows Desktop Sharing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果是只针对windows平台，通过windows desktop sharing，工作量可以减少很多。&lt;/p&gt;
+&lt;p&gt;windows desktop sharing是基于rdp的一套API，提供非常简单快捷实现桌面共享的功能。根据在&lt;a href="http://msdn.microsoft.com/en-us/library/bb968809.aspx" title="MSDN Windows Desktop Sharing"&gt;MSDN&lt;/a&gt;上的介绍，这个功能是微软从Vista开始提供的功能，而且在&lt;a href="http://blogs.msdn.com/b/rds/archive/2007/03/08/windows-desktop-sharing-api.aspx" title="Remote Desktop Service Blog"&gt;BLOG&lt;/a&gt;中提到，这个功能是微软的 "Windows Meeting Space" 和 "Remote Assistance" 的基础。&lt;/p&gt;
+&lt;p&gt;目前粗略看了一下MSDN上的介绍，它的核心对象就是RDPSession和RDPViewer两个，其它的操作在这两个对象的基础上进行。&lt;/p&gt;
+&lt;p&gt;除了支持桌面共享，这个API还支持很多有意思的功能，比较连接反转（Reverse Connect）、应用程序窗口共享、虚拟通道等等。&lt;/p&gt;
+&lt;p&gt;目前准备使用Windows Desktop Sharing来实现一个系统原型，评测一下效果。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Yingcai FENG&lt;/p&gt;</summary><category term="windows"></category></entry><entry><title>使用virtualenv建立python开发环境</title><link href="http://fengyc.github.io/blog/virtualenv.html" rel="alternate"></link><updated>2014-08-28T20:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-28:blog/virtualenv.html</id><summary type="html">&lt;p&gt;在python开发中，经常性需要安装一系列的依赖库。如果使用root用户安装到系统的python环境中，容易导致python目录越来越庞大。而后面更加麻烦的是，当开发完成之后，不知道该删除哪些依赖库了，因此也不敢删了。现在的Linux发行版中，各种组件对python环境的依赖很强，不小心删错了，绝对会让人追悔莫及！&lt;/p&gt;
+&lt;p&gt;为此，我们绝对需要把我们的开发环境与系统的python环境隔离，让依赖库只在开发目录下存在，不会影响到系统python环境。使用virtualenv工具，可以轻易地帮助我们达成目的。&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;virtualenv工具建立一个项目专用的python环境，在该环境中，有独立的&lt;code&gt;bin include lib local&lt;/code&gt;等目录，里面会有一个单独的python环境。&lt;/p&gt;
+&lt;p&gt;如果要在建立一个virtualenv环境(目录为.env)，使用命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv .env
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，使用命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;tree -d .env
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以查看到整个目录的树结构&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;├── bin
+├── include
+│   └── python2.7 -&amp;gt; /usr/include/python2.7
+├── lib
+│   └── python2.7
+│       ├── config -&amp;gt; /usr/lib/python2.7/config
+│       ├── distutils
+│       ├── encodings -&amp;gt; /usr/lib/python2.7/encodings
+│       ├── lib-dynload -&amp;gt; /usr/lib/python2.7/lib-dynload
+│       └── site-packages
+│           ├── _markerlib
+│           ├── pip
+│           │   ├── backwardcompat
+│           │   ├── commands
+│           │   ├── vcs
+│           │   └── _vendor
+│           │       ├── colorama
+│           │       ├── distlib
+│           │       │   └── _backport
+│           │       ├── html5lib
+│           │       │   ├── filters
+│           │       │   ├── serializer
+│           │       │   ├── treeadapters
+│           │       │   ├── treebuilders
+│           │       │   ├── treewalkers
+│           │       │   └── trie
+│           │       ├── _markerlib
+│           │       └── requests
+│           │           └── packages
+│           │               ├── chardet
+│           │               └── urllib3
+│           │                   ├── contrib
+│           │                   ├── packages
+│           │                   │   └── ssl_match_hostname
+│           │                   └── util
+│           ├── pip-1.5.6.dist-info
+│           ├── setuptools
+│           │   ├── command
+│           │   └── tests
+│           └── setuptools-3.6.dist-info
+└── local
+    ├── bin -&amp;gt; /home/fengyingcai/hello/bin
+    ├── include -&amp;gt; /home/fengyingcai/hello/include
+    └── lib -&amp;gt; /home/fengyingcai/hello/lib
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，使用命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;source .env/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;就可以激活这个virtualenv环境，这时，会看到在命令提示前，会有&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;(.env)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;的提示&lt;/p&gt;
+&lt;p&gt;如果要退出，使用命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yingcai FENG at SYSU&lt;/p&gt;</summary><category term="tech"></category><category term="python"></category></entry><entry><title>关于</title><link href="http://fengyc.github.io/blog/about.html" rel="alternate"></link><updated>2014-08-26T20:13:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-26:blog/about.html</id><summary type="html">&lt;p&gt;先空着&lt;/p&gt;</summary><category term="about"></category></entry><entry><title>git常用命令</title><link href="http://fengyc.github.io/blog/useful-git-commands.html" rel="alternate"></link><updated>2014-09-14T17:40:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-24:blog/useful-git-commands.html</id><summary type="html">&lt;p&gt;本文章记录了git的日常使用中的常用命令。
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载远程仓库&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone &amp;lt;URL&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;更新&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git pull
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;推送&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git push
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;在本地工作目录指定远程仓库&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git remote add &amp;lt;URL&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;取消本地修改&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git checkout &amp;lt;FILE&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;查看远程仓库&lt;/strong&gt;&lt;br /&gt;
+当git仓库clone到本地之后，如果忘记了具体的远程仓库地址，可通过以下的命令查看：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git remove -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;添加子模块&lt;/strong&gt;&lt;br /&gt;
+当项目需要引用到其它git仓库时，使用子模块&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git submodule add &amp;lt;URL&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;子模块初始化&lt;/strong&gt;
+当一个git仓库被clone下来之后，子模块并不会被自动下载下来，使用下面的命令初始化各个子模块：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git submodule update --init --recursive
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;某些时候，当子模块的目录存在的时候，会导致初始化出错，这时候，直接删除子模块的目录：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rm -rf &amp;lt;子模块目录&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;删除子模块&lt;/strong&gt;&lt;br /&gt;
+很奇怪，并没有&lt;code&gt;git submodule remove/delete&lt;/code&gt;命令，只能通过先删除子模块目录，然后调整&lt;code&gt;.gitmodules&lt;/code&gt;文件来实现&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git rm --cache &amp;lt;DIR&amp;gt;
+rm -rf &amp;lt;DIR&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后修改&lt;code&gt;.gitmodules&lt;/code&gt;实现&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Yingcai FENG&lt;/p&gt;</summary><category term="git"></category></entry><entry><title>利用pelican在github上搭建博客的办法</title><link href="http://fengyc.github.io/blog/pelican-github-blog.html" rel="alternate"></link><updated>2014-08-26T14:12:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-22:blog/pelican-github-blog.html</id><summary type="html">&lt;p&gt;发现能在github上搭建博客之后，经过一翻寻找之后，学会了使用pelican建立起整个博客系统。&lt;/p&gt;
+&lt;p&gt;pelican使用python语言编写，支持markdown(.md)/reStructuredText(.rst)语法。对程序员而言，用它来编写博客内容是最好不过了，而且放在github上，也给人一种不明觉历的感觉:-)&lt;/p&gt;
+&lt;p&gt;这篇文章记录在ubuntu 14.04下，使用pelican和github搭建博客的过程。&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h2&gt;安装过程&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;在github上建立博客项目&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在github上建立一个账号，并建立一个公共项目，项目名为"账号.github.io"，不需要建立README等，保持项目为空白，如：
+    https://github.com/abc/fengyc.github.io&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装准备环境&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install -y --force-yes git python-pip python-dev virtualenv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;把项目clone到本地&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir blog
+cd blog
+git init
+git remote add origin https://github.com/fengyc.github.io.git
+git fetch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;建立virtualenv环境&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir .env
+virtualenv .env
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;激活virtualenv环境&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;source .env/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;安装pelican和Markdown&lt;/strong&gt;&lt;br /&gt;
+在激活了virtualenv的前提下安装，避免污染python环境&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
+pip install Markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;建立源分支&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git checkout -b source
+pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;请根据自己的实际环境选择向导中的变量&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;编写第一个页面&lt;/strong&gt;
+用markdown语法编写一个页面，如(&lt;a href="http://docs.getpelican.com/en/3.3.0/getting_started.html" title="pelican参考页面"&gt;pelican-getting_started&lt;/a&gt;)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;
+&lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;publishing&lt;/span&gt;
+&lt;span class="n"&gt;Slug&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;
+&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Alexis&lt;/span&gt; &lt;span class="n"&gt;Metaireau&lt;/span&gt;
+&lt;span class="n"&gt;Summary&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;feeds&lt;/span&gt;
+
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;编译并发布&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt;
+&lt;span class="nn"&gt;git&lt;/span&gt; &lt;span class="nn"&gt;branch&lt;/span&gt; &lt;span class="nn"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
+&lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;output&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nb"&gt;all&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;pelican主题&lt;/h2&gt;
+&lt;p&gt;pelican提供了很多的主题供用户使用，首先把主题下载到本地：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/getpelican/pelican-themes.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，进入到主题目录中，安装主题&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd pelican-themes
+pelican-themes -i gum
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;增加DISQUS作为讨论组&lt;/h2&gt;
+&lt;p&gt;先到DISQUS(&lt;a href="http://disqus.com/" title="DISQUS申请"&gt;disqus&lt;/a&gt;)申请一个账号，并建立一个讨论组。记录下讨论组的shortname，然后记录到配置文件中：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;DISQUS_SITENAME=zenmass
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;使用google analytics(&lt;a href="http://www.google.cn/intl/zh-CN/analytics/" title="Google Analytics申请"&gt;google-analytics&lt;/a&gt;)&lt;/h2&gt;
+&lt;p&gt;申请一个google analytics账号，建立一个项目，然后把跟踪ID填入到配置文件中：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;GOOGLE_ANALYTICS=
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="github"></category><category term="python"></category></entry><entry><title>Hello, World!</title><link href="http://fengyc.github.io/blog/helloworld.html" rel="alternate"></link><updated>2014-08-22T10:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2014-08-22:blog/helloworld.html</id><summary type="html">&lt;p&gt;是的，按照惯例，这是一个Hello, world!&lt;/p&gt;
+&lt;p&gt;仅作为在 github 上的第一篇文章。&lt;/p&gt;</summary><category term="blog"></category></entry></feed>

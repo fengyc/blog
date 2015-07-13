@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>利用pelican在github上搭建博客的办法</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./pelican-github-blog.html" rel="bookmark"
+                   title="Permalink to 利用pelican在github上搭建博客的办法">利用pelican在github上搭建博客的办法</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2014-08-22T20:20:00+08:00">
+                五 22 八月 2014
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/yingcai-feng.html"> Yingcai FENG</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>发现能在github上搭建博客之后，经过一翻寻找之后，学会了使用pelican建立起整个博客系统。</p>
+<p>pelican使用python语言编写，支持markdown(.md)/reStructuredText(.rst)语法。对程序员而言，用它来编写博客内容是最好不过了，而且放在github上，也给人一种不明觉历的感觉:-)</p>
+<p>这篇文章记录在ubuntu 14.04下，使用pelican和github搭建博客的过程。</p>
+<!-- PELICAN_END_SUMMARY -->
+
+<h2>安装过程</h2>
+<p><strong>在github上建立博客项目</strong></p>
+<p>在github上建立一个账号，并建立一个公共项目，项目名为"账号.github.io"，不需要建立README等，保持项目为空白，如：
+    https://github.com/abc/fengyc.github.io</p>
+<p><strong>安装准备环境</strong></p>
+<div class="highlight"><pre>apt-get install -y --force-yes git python-pip python-dev virtualenv
+</pre></div>
+
+
+<p><strong>把项目clone到本地</strong></p>
+<div class="highlight"><pre>mkdir blog
+cd blog
+git init
+git remote add origin https://github.com/fengyc.github.io.git
+git fetch
+</pre></div>
+
+
+<p><strong>建立virtualenv环境</strong></p>
+<div class="highlight"><pre>mkdir .env
+virtualenv .env
+</pre></div>
+
+
+<p><strong>激活virtualenv环境</strong></p>
+<div class="highlight"><pre>source .env/bin/activate
+</pre></div>
+
+
+<p><strong>安装pelican和Markdown</strong><br />
+在激活了virtualenv的前提下安装，避免污染python环境</p>
+<div class="highlight"><pre>pip install pelican
+pip install Markdown
+</pre></div>
+
+
+<p><strong>建立源分支</strong></p>
+<div class="highlight"><pre>git checkout -b source
+pelican-quickstart
+</pre></div>
+
+
+<p>请根据自己的实际环境选择向导中的变量</p>
+<p><strong>编写第一个页面</strong>
+用markdown语法编写一个页面，如(<a href="http://docs.getpelican.com/en/3.3.0/getting_started.html" title="pelican参考页面">pelican-getting_started</a>)：</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="kd">super</span> <span class="n">title</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Python</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">publishing</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">my</span><span class="o">-</span><span class="kd">super</span><span class="o">-</span><span class="n">post</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">Short</span> <span class="n">version</span> <span class="k">for</span> <span class="n">index</span> <span class="n">and</span> <span class="n">feeds</span>
+
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="kd">super</span> <span class="n">blog</span> <span class="n">post</span><span class="o">.</span>
+</pre></div>
+
+
+<p><strong>编译并发布</strong></p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">html</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span>
+<span class="nn">git</span> <span class="nn">branch</span> <span class="nn">gp</span><span class="o">-</span><span class="n">pages</span>
+<span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="nn">output</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+
+
+<h2>pelican主题</h2>
+<p>pelican提供了很多的主题供用户使用，首先把主题下载到本地：</p>
+<div class="highlight"><pre>git clone https://github.com/getpelican/pelican-themes.git
+</pre></div>
+
+
+<p>然后，进入到主题目录中，安装主题</p>
+<div class="highlight"><pre>cd pelican-themes
+pelican-themes -i gum
+</pre></div>
+
+
+<h2>增加DISQUS作为讨论组</h2>
+<p>先到DISQUS(<a href="http://disqus.com/" title="DISQUS申请">disqus</a>)申请一个账号，并建立一个讨论组。记录下讨论组的shortname，然后记录到配置文件中：</p>
+<div class="highlight"><pre>DISQUS_SITENAME=zenmass
+</pre></div>
+
+
+<h2>使用google analytics(<a href="http://www.google.cn/intl/zh-CN/analytics/" title="Google Analytics申请">google-analytics</a>)</h2>
+<p>申请一个google analytics账号，建立一个项目，然后把跟踪ID填入到配置文件中：</p>
+<div class="highlight"><pre>GOOGLE_ANALYTICS=
+</pre></div>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="./category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>

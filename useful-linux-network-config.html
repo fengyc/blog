@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>Linux网络配置</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./useful-linux-network-config.html" rel="bookmark"
+                   title="Permalink to Linux网络配置">Linux网络配置</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2014-09-13T20:20:00+08:00">
+                六 13 九月 2014
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/yingcai-feng.html"> Yingcai FENG</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <h2>Ubuntu停用Network Manager</h2>
+<p>Desktop版本的Ubuntu，使用Network Manager来进行网络管理，它会导致在<code>/etc/network/interface</code>中的设置不生效。由于在进行一些网络功能的开发时，需要用到<code>/etc/network/interface</code>文件管理网络，需要停用Network Manager。</p>
+<div class="highlight"><pre>service network-manager stop
+</pre></div>
+
+
+<p>并向<code>/etc/network/interface</code>中写入具体的配置</p>
+<div class="highlight"><pre>cat&gt;&gt;/etc/network/interface&lt;&lt;EOF
+auto eth0
+iface eth0 inet static
+address 192.168.0.128
+netmask 255.255.255.0
+gateway 192.168.0.1
+dns-nameservers 192.168.0.1
+EOF
+</pre></div>
+
+
+<p>然后，使用</p>
+<div class="highlight"><pre>ifdown --exclude=lo -a &amp;&amp; ifup --exclude=lo -a
+</pre></div>
+
+
+<p>把网络重启。</p>
+<h2>为网卡增加配置多个IP</h2>
+<p>为了区分各个网络，需要使用多个网段。而在只有一个网卡的时候，就需要为这个网卡配置多个IP。实现的手段有两种：</p>
+<ol>
+<li>
+<p>配置虚拟网络接口<br />
+在<code>/etc/network/interface</code>中，增加类似<code>eth0:1</code>的接口，如：</p>
+<div class="highlight"><pre>auto eth0:1
+iface eth0:1 inet static
+address a.b.c.d
+netmask a.b.c.d
+</pre></div>
+
+
+</li>
+<li>
+<p>通过<code>ip addr add</code>命令<br />
+<code>ip addr add</code>命令在网卡上增加一个地址，如：</p>
+<div class="highlight"><pre>ip addr add 192.168.0.128/24 dev eth0
+</pre></div>
+
+
+</li>
+</ol>
+<h2>Linux中DNS配置</h2>
+<p>一般，应该通过<code>/etc/network/interface</code>文件设置<code>dns-nameservers</code>来配置，<code>interface</code>文件中的配置，会被解析并自动更新到<code>/etc/resolv.conf</code>文件中。</p>
+<p>如果需要临时修改DNS配置，也可以直接把DNS写入到<code>resolv.conf</code>中，如：</p>
+<div class="highlight"><pre>echo &#39;nameserver 8.8.4.4&#39; &gt;&gt; /etc/resolv.conf
+</pre></div>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="./category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>

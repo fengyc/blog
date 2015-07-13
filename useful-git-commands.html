@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>git常用命令</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
+
+        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="./">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="./">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="./useful-git-commands.html" rel="bookmark"
+                   title="Permalink to git常用命令">git常用命令</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2014-08-24T17:40:00+08:00">
+                日 24 八月 2014
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="./author/yingcai-feng.html"> Yingcai FENG</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>本文章记录了git的日常使用中的常用命令。
+<!-- PELICAN_END_SUMMARY --></p>
+<p><strong>下载远程仓库</strong></p>
+<div class="highlight"><pre>git clone &lt;URL&gt;
+</pre></div>
+
+
+<p><strong>更新</strong>  </p>
+<div class="highlight"><pre>git pull
+</pre></div>
+
+
+<p><strong>推送</strong></p>
+<div class="highlight"><pre>git push
+</pre></div>
+
+
+<p><strong>在本地工作目录指定远程仓库</strong></p>
+<div class="highlight"><pre>git remote add &lt;URL&gt;
+</pre></div>
+
+
+<p><strong>取消本地修改</strong></p>
+<div class="highlight"><pre>git checkout &lt;FILE&gt;
+</pre></div>
+
+
+<p><strong>查看远程仓库</strong><br />
+当git仓库clone到本地之后，如果忘记了具体的远程仓库地址，可通过以下的命令查看：</p>
+<div class="highlight"><pre>git remove -v
+</pre></div>
+
+
+<p><strong>添加子模块</strong><br />
+当项目需要引用到其它git仓库时，使用子模块</p>
+<div class="highlight"><pre>git submodule add &lt;URL&gt;
+</pre></div>
+
+
+<p><strong>子模块初始化</strong>
+当一个git仓库被clone下来之后，子模块并不会被自动下载下来，使用下面的命令初始化各个子模块：</p>
+<div class="highlight"><pre>git submodule update --init --recursive
+</pre></div>
+
+
+<p>某些时候，当子模块的目录存在的时候，会导致初始化出错，这时候，直接删除子模块的目录：</p>
+<div class="highlight"><pre>rm -rf &lt;子模块目录&gt;
+</pre></div>
+
+
+<p><strong>删除子模块</strong><br />
+很奇怪，并没有<code>git submodule remove/delete</code>命令，只能通过先删除子模块目录，然后调整<code>.gitmodules</code>文件来实现</p>
+<div class="highlight"><pre>git rm --cache &lt;DIR&gt;
+rm -rf &lt;DIR&gt;
+</pre></div>
+
+
+<p>然后修改<code>.gitmodules</code>实现</p>
+<hr />
+<p>Yingcai FENG</p>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="./category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="./theme/js/libs/gumby.min.js"></script>
+  <script src="./theme/js/plugins.js"></script>
+</body>
+</html>

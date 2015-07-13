@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>Mass 9</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="../theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="../theme/pygment.css" />
+
+        <script src="../theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="../">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="../">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content">
+<h2>Articles in the blog category</h2>
+
+
+   <div class="row">
+
+
+        <div class="eleven columns">
+                 <ol id="post-list">
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../install-wps-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装WPS">在Ubuntu中安装WPS</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-20T15:20:00+08:00"> 六 20 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>WPS的官网上已经提供了.deb安装包，但是只有32位的版本，目前还没有64位的版本。现在的电脑配置基本上都超4G内存了，使用64位的系统才能更好地利用更多内存，现在的Linux大部分都使用64位了。尽管WPS还没有推出64位的版本，但能在Linux上发行，已经是很大的进步。</p>
+<p>64位的系统要安装32位的软件，还需要动动脑筋。原来Ubuntu是提供一个<code>ia32-libs</code>安装包，把32位系统所需要的软件包都一起装了。在14.04上，并没有在官方的源中找到这个包。</p>
+<p>然而，尝试了一下之后，发现还是能把WPS装上。过程如下：</p>
+<p>首先，到<a href="http://community.wps.cn/download/">wps</a>网站上下载wps，我下载了<code>wps-office_9.1.0.4751~a15_i386.deb</code>。并下载字体包 <code>wps-office-fonts_1.0_all.deb</code>。</p>
+<p>现在，开启32位支持 ...</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../install-wps-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装WPS">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/blog.html">blog</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../install-rabbitvcs-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装RabbitVCS">在Ubuntu中安装RabbitVCS</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-18T15:56:00+08:00"> 四 18 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>RabbitVCS是Linux下的图形化版本管理软件，支持SVN/GIT，官网是<a href="http://www.rabbitvcs.org/">rabbitvcs.org</a>，PPA网站是<a href="https://launchpad.net/~rabbitvcs/+archive/ubuntu/ppa">rabbitvcs-ppa</a>。</p>
+<p>RabbitVCS的操作很像Windows下的小乌龟:-)，支持把操作集成到图形界面的右键菜单中，与TortoiseSVN是同样的，非常方便。</p>
+<p>安装的方法在PPA站点上有介绍，根据自己的系统的版本，把源加入到系统中，在14.04中，示例为：</p>
+<div class="highlight"><pre><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/etc/apt/sources.list.d/rabbitvcs.list</span> <span class="err">&lt;&lt;EOF</span>
+<span class="k">deb</span> <span class="s">http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu</span> <span class="kp">trusty</span> <span class="kp">main</span>
+<span class="err">EOF</span>
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../install-rabbitvcs-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装RabbitVCS">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../install-oracle-jdk-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装Oracle JDK">在Ubuntu中安装Oracle JDK</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-18T13:02:00+08:00"> 四 18 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>尽管OpenJDK发展到现在已经能兼容绝大多数的标准Java应用场景，但是在某些微小的方面，仍然存在一点小问题。在Ubuntu中安装的Eclipse，使用OpenJDK时，使用内置的浏览器会有点问题，因此，我需要转换到Oracle的JDK。</p>
+<p>可以手工安装OracleJDK，比较烦琐。可以通过已打包好的PPA，进行安装：</p>
+<div class="highlight"><pre>add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+</pre></div>
+
+
+<p>webupd8的官方网站为<a href="http://www.webupd8.org/">webupd8.org</a>。他们提供了一系列的软件包，见<a href="http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html">packages</a>。</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../install-oracle-jdk-in-ubuntu.html" rel="bookmark" title="Permalink to 在Ubuntu中安装Oracle JDK">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                            <a class="danger label" href="../tag/java.html">java</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../using-keypair-connect-vm.html" rel="bookmark" title="Permalink to Openstack中使用Keypair连接到VM">Openstack中使用Keypair连接到VM</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-17T14:33:00+08:00"> 三 17 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>通常，系统的用户名和密码都是安装过程中指定的，然后通过安全的渠道交到最终使用者的手中。这种传统的方式在进行大规模的服务器管理时就非常麻烦，因为每台机器都需要指定用户名和密码，导致需要管理的密码数量非常庞大。如果需要更改密码，还需要逐个来修改！！</p>
+<p>在云计算中无法使用这种方式来管理虚拟机系统。镜像的开发者无法得知谁是最终的用户，最终用户无法确保开发者会不会用默认的用户名和密码来干坏事。</p>
+<p>因此，云计算普通会采用一种在系统第一次运行时把用户名密码注入到系统的办法，Openstack与Amazon的AWS都使用这样的办法来管理，但是不是通过用户名密码，而是通过一对密钥对。密钥对是用户自己生成的，可以在多台服务器上使用，用户使用私钥连接到各个服务器。</p>
+<p>在Openstack Dashboard上，生成一对KeyPair。公钥保存在Openstack上，私钥在生成时直接下载到用户本地。Openstack的私钥保存为一个.pem文件。</p>
+<p>密钥对生成之后，在启动实例时，为VM指定一个此密钥对。那么在VM初始化时，当网络初始化完成之后，安装在VM系统里面的初始化工具，向<code>169.254.169.254</code>这个特殊的IP地址，向Openstack请求VM的元数据（metadata ...</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../using-keypair-connect-vm.html" rel="bookmark" title="Permalink to Openstack中使用Keypair连接到VM">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/openstack.html">openstack</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../use-devstack-deploy-openstack.html" rel="bookmark" title="Permalink to 使用devstack部署openstack环境">使用devstack部署openstack环境</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-14T21:55:00+08:00"> 日 14 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>devstack是一套openstack的部署脚本，对openstack初学者而言，是最好不过的openstack部署脚本了。</p>
+<p>devstack的官方网站为<code>devstack.org</code>。官方网站上已经对devstack的用途有介绍，这里介绍一下我在测试中使用到的一些注意问题。</p>
+<p>devstack整套脚本放在github中，使用下面的命令clone到本地：</p>
+<div class="highlight"><pre>git clone https://github.com/openstack-dev/devstack.git
+</pre></div>
+
+
+<p>下载完成后，需要进行一个简单的配置的，在官网中给出了一个最小的配置<a href="http://devstack.org/configuration.html" title="Devstack minimal configuration">devstack-mini-config</a>。</p>
+<p>然后，进入到目录中，以<strong>普通用户</strong>的权限执行stack.sh，进行openstack的安装。</p>
+<div class="highlight"><pre>cd devstack &amp;&amp; ./stack.sh
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../use-devstack-deploy-openstack.html" rel="bookmark" title="Permalink to 使用devstack部署openstack环境">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/openstack.html">openstack</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../useful-linux-network-config.html" rel="bookmark" title="Permalink to Linux网络配置">Linux网络配置</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-13T20:20:00+08:00"> 六 13 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h2>Ubuntu停用Network Manager</h2>
+<p>Desktop版本的Ubuntu，使用Network Manager来进行网络管理，它会导致在<code>/etc/network/interface</code>中的设置不生效。由于在进行一些网络功能的开发时，需要用到<code>/etc/network/interface</code>文件管理网络，需要停用Network Manager。</p>
+<div class="highlight"><pre>service network-manager stop
+</pre></div>
+
+
+<p>并向<code>/etc/network/interface</code>中写入具体的配置</p>
+<div class="highlight"><pre>cat&gt;&gt;/etc/network/interface&lt;&lt;EOF
+auto eth0
+iface eth0 inet static
+address 192.168 ...</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../useful-linux-network-config.html" rel="bookmark" title="Permalink to Linux网络配置">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../useful-linux-commands.html" rel="bookmark" title="Permalink to 常用Linux命令">常用Linux命令</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-13T13:57:00+08:00"> 六 13 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>本文整理一些常用的Linux命令，以及shell编程中使用到常用语句。</p>
+<h2>shell中判断</h2>
+<p>使用<code>if</code>进行判断</p>
+<div class="highlight"><pre>if [ &lt;condition&gt; ]; then
+    # Do something
+fi
+</pre></div>
+
+
+<p>包含多个分支，使用<code>if-elif</code></p>
+<div class="highlight"><pre>if [ &lt;condition&gt; ]; then
+    # Do something
+elif [ &lt;condition&gt; ]; then
+    # Do somethin
+fi
+</pre></div>
+
+
+<h2>watch查看命令多次执行的结果</h2>
+<p>watch能多次执行命令，并把命令的结果显示出来，支持每隔n秒执行一次命令，并把执行结果的差异显示。</p>
+<div class="highlight"><pre>watch -n &lt;seconds&gt; -d &lt;commands&gt;
+</pre></div>
+
+
+<h2>tar压缩打包</h2>
+<p>常用的tar参数包括：</p>
+<ul>
+<li><code>-c</code> 创建包 ...</li></ul> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../useful-linux-commands.html" rel="bookmark" title="Permalink to 常用Linux命令">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/linux.html">linux</a>
+                                            <a class="danger label" href="../tag/shell.html">shell</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../windowns-desktop-sharing-2.html" rel="bookmark" title="Permalink to Windows桌面共享2">Windows桌面共享2</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-09-01T23:20:00+08:00"> 一 01 九月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>经过一天的尝试，使用Windows Desktop Sharing API写了一点原型代码，并运行起来查看效果。</p>
+<p>我是使用C#来调用这个API的（本身是COM，可以由Visual Studio自动添加包装）。原型系统的代码分为服务器端（Sharer）和客户端（Attendee）,只是简单地把整个桌面全部共享出来。下面，是一些编程中的核心的内容。</p>
+<h2>Sharer端</h2>
+<p>在Sharer端，首先要引入API的COM，名称为<code>rdpcomapi 1.0 Type Library</code>，文件路径为<code>C:\Windows\System32\rdpencom.dll</code>。在引入的同时，Visual Studio会自动把这个COM进行包装，从而在项目的引用中可看到<code>RDPCOMAPILib</code>这个库，而查看其属性 ...</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../windowns-desktop-sharing-2.html" rel="bookmark" title="Permalink to Windows桌面共享2">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/windows.html">windows</a>
+                                            <a class="danger label" href="../tag/c.html">C#</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../windows-desktop-sharing.html" rel="bookmark" title="Permalink to Windows桌面共享">Windows桌面共享</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-29T21:00:00+08:00"> 五 29 八月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>最近在做一个windows桌面共享的项目，找了一系列的方法：</p>
+<p><strong>视频广播方式</strong></p>
+<p>视频广播方式可能是最具备跨平台特性的方式。在本地程序录制桌面的视频，或者基于硬件直接录制然后播放，然后实时发送到各个客户端。这种思想有很多的实现方式，而且整个结构很容易理解和扩展。</p>
+<p>录制的方式，总结了一下，找到下面的录制方式：</p>
+<ol>
+<li>windows GDI 截图</li>
+<li>directShow 直接录制</li>
+<li>mirror driver 或 mini port 驱动录制</li>
+<li>ffmpeg 录制 </li>
+</ol>
+<p>为了降低分享桌面的主机的负载，可以引入特定的视频广播服务器，由服务器进行视频转发。具体的协议可通过udp/rtsp等实现。</p>
+<p>这种方式具备与平台无关的特性，视频录制方式可随时扩展，而通过标准的接口把数据提交到转发服务器。但实现起来，需要做的工作也很多，需要理解基本的视频处理知识，实现一个良好的系统框架。</p>
+<p><strong>Windows Desktop Sharing ...</strong></p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../windows-desktop-sharing.html" rel="bookmark" title="Permalink to Windows桌面共享">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/windows.html">windows</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="../virtualenv.html" rel="bookmark" title="Permalink to 使用virtualenv建立python开发环境">使用virtualenv建立python开发环境</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-28T20:20:00+08:00"> 四 28 八月 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="../author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>在python开发中，经常性需要安装一系列的依赖库。如果使用root用户安装到系统的python环境中，容易导致python目录越来越庞大。而后面更加麻烦的是，当开发完成之后，不知道该删除哪些依赖库了，因此也不敢删了。现在的Linux发行版中，各种组件对python环境的依赖很强，不小心删错了，绝对会让人追悔莫及！</p>
+<p>为此，我们绝对需要把我们的开发环境与系统的python环境隔离，让依赖库只在开发目录下存在，不会影响到系统python环境。使用virtualenv工具，可以轻易地帮助我们达成目的。</p>
+<!-- PELICAN_END_SUMMARY -->
+
+<p>virtualenv工具建立一个项目专用的python环境，在该环境中，有独立的<code>bin include lib local</code>等目录，里面会有一个单独的python环境。</p>
+<p>如果要在建立一个virtualenv环境(目录为.env)，使用命令：</p>
+<div class="highlight"><pre>virtualenv .env
+</pre></div>
+
+
+<p>然后，使用命令：</p>
+<div class="highlight"><pre>tree -d .env
+</pre></div>
+
+
+<p>可以查看到整个目录的树结构</p>
+<div class="highlight"><pre>├── bin ...</pre></div></!--> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="../virtualenv.html" rel="bookmark" title="Permalink to 使用virtualenv建立python开发环境">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="../tag/tech.html">tech</a>
+                                            <a class="danger label" href="../tag/python.html">python</a>
+                                </div>
+
+
+
+                        </article></li>
+                </ol><!-- /#posts-list -->
+
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="../category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+<p class="paginator">
+    Page 1 / 2
+        <a href="../category/blog2.html"><i class="icon-arrow-right"></i></a>
+</p>
+</section><!-- /#content -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="../theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="../theme/js/libs/gumby.min.js"></script>
+  <script src="../theme/js/plugins.js"></script>
+</body>
+</html>
