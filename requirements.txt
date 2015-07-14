@@ -3,3 +3,10 @@
 pelican
 markdown
 ghp-import
+
+typogrify
+feedgenerator
+jinja2
+pygments
+MarkupSafe
+python-dateutil
