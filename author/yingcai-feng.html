@@ -63,6 +63,36 @@
         <div class="eleven columns">
                  <ol id="post-list">
                         <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://fengyc.github.io/blog/adjust-ubuntu-fonts.html" rel="bookmark" title="Permalink to 调整 ubuntu 的字体">调整 ubuntu 的字体</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-07-17T11:20:00+08:00"> 五 17 七月 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://fengyc.github.io/blog/author/yingcai-feng.html"> Yingcai FENG</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>安装完 Ubuntu 桌面版本的系统后，在默认情况下，字体的显示效果不是很好，会有模糊等现象。</p>
+<p>So ，如果想调整一下字体，首先安装一些中文字体：</p>
+<div class="highlight"><pre>sudo apt-get install fonts-wqy-zenhei
+sudo apt-get install fonts-wqy-microhei
+</pre></div>
+
+
+<p>这两个文泉驿字体能满足大部分的需求了，对于码农来说，最好还加一个 Adobe 的 source code pro 字体，这个字体用来显示等宽或代码时效果非常好</p>
+<div class="highlight"><pre>wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip -O source-code-pro-1.017R ...</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://fengyc.github.io/blog/adjust-ubuntu-fonts.html" rel="bookmark" title="Permalink to 调整 ubuntu 的字体">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://fengyc.github.io/blog/tag/blog.html">blog</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
                                 <header> <h2 class="entry-title"><a href="http://fengyc.github.io/blog/fork-github-project.html" rel="bookmark" title="Permalink to 参与 github 开源项目开发">参与 github 开源项目开发</a></h2> </header>
                                 <footer class="post-info">
                                     <abbr class="published" title="2015-07-13T21:20:00+08:00"> 一 13 七月 2015 </abbr>
@@ -335,33 +365,6 @@ fi
                                             <a class="danger label" href="http://fengyc.github.io/blog/tag/tech.html">tech</a>
                                             <a class="danger label" href="http://fengyc.github.io/blog/tag/linux.html">linux</a>
                                             <a class="danger label" href="http://fengyc.github.io/blog/tag/shell.html">shell</a>
-                                </div>
-
-
-
-                        </article></li>
-                        <li><article class="hentry">
-                                <header> <h2 class="entry-title"><a href="http://fengyc.github.io/blog/windowns-desktop-sharing-2.html" rel="bookmark" title="Permalink to Windows桌面共享2">Windows桌面共享2</a></h2> </header>
-                                <footer class="post-info">
-                                    <abbr class="published" title="2014-09-01T23:20:00+08:00"> 一 01 九月 2014 </abbr>
-                                    <address class="vcard author">By 
-                                    <a class="url fn" href="http://fengyc.github.io/blog/author/yingcai-feng.html"> Yingcai FENG</a>
-                                    </address>
-                                </footer><!-- /.post-info -->
-                                <div class="entry-content"> <p>经过一天的尝试，使用Windows Desktop Sharing API写了一点原型代码，并运行起来查看效果。</p>
-<p>我是使用C#来调用这个API的（本身是COM，可以由Visual Studio自动添加包装）。原型系统的代码分为服务器端（Sharer）和客户端（Attendee）,只是简单地把整个桌面全部共享出来。下面，是一些编程中的核心的内容。</p>
-<h2>Sharer端</h2>
-<p>在Sharer端，首先要引入API的COM，名称为<code>rdpcomapi 1.0 Type Library</code>，文件路径为<code>C:\Windows\System32\rdpencom.dll</code>。在引入的同时，Visual Studio会自动把这个COM进行包装，从而在项目的引用中可看到<code>RDPCOMAPILib</code>这个库，而查看其属性 ...</p> </div><!-- /.entry-content -->
-
-                                <div class="medium primary btn"><a href="http://fengyc.github.io/blog/windowns-desktop-sharing-2.html" rel="bookmark" title="Permalink to Windows桌面共享2">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-                                <div class="row tag-row">
-                                        <span>Tagged as : </span>
-                                            <a class="danger label" href="http://fengyc.github.io/blog/tag/tech.html">tech</a>
-                                            <a class="danger label" href="http://fengyc.github.io/blog/tag/windows.html">windows</a>
-                                            <a class="danger label" href="http://fengyc.github.io/blog/tag/c.html">C#</a>
                                 </div>
 
 

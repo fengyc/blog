@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>调整 ubuntu 的字体</title>
+        <meta charset="utf-8" />
+        <link href="http://fengyc.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Full Atom Feed" />
+        <link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Mass 9 Categories Atom Feed" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://fengyc.github.io/blog/theme/pygment.css" />
+
+        <script src="http://fengyc.github.io/blog/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+              <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-54175787-1', '');
+                ga('send', 'pageview');
+
+              </script>
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="http://fengyc.github.io/blog/">Mass 9 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="http://fengyc.github.io/blog/">Home</a></li>
+
+                <li><a href="/blog/about">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="http://fengyc.github.io/blog/adjust-ubuntu-fonts.html" rel="bookmark"
+                   title="Permalink to 调整 ubuntu 的字体">调整 ubuntu 的字体</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2015-07-17T11:20:00+08:00">
+                五 17 七月 2015
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="http://fengyc.github.io/blog/author/yingcai-feng.html"> Yingcai FENG</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <p>安装完 Ubuntu 桌面版本的系统后，在默认情况下，字体的显示效果不是很好，会有模糊等现象。</p>
+<p>So ，如果想调整一下字体，首先安装一些中文字体：</p>
+<div class="highlight"><pre>sudo apt-get install fonts-wqy-zenhei
+sudo apt-get install fonts-wqy-microhei
+</pre></div>
+
+
+<p>这两个文泉驿字体能满足大部分的需求了，对于码农来说，最好还加一个 Adobe 的 source code pro 字体，这个字体用来显示等宽或代码时效果非常好</p>
+<div class="highlight"><pre>wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip -O source-code-pro-1.017R.zip
+unzip source-code-pro-1.017R.zip
+sudo mkdir -p /usr/share/fonts/opentype
+sudo cp source-code-pro-1.017R /usr/share/fonts/opentype
+sudo fc-cache -f -v
+</pre></div>
+
+
+<p>安装了字体之后，使用 unity-tweak-tools 调整字体</p>
+<div class="highlight"><pre>sudo apt-get install unity-tweak-tool
+</pre></div>
+
+
+<p>在 unity-tweak-tools 的字体选项中，将 monospace font 改成 source-code-pro，然后调整次像素平滑（hinting）为 sligtly等。</p>
+<p>按照网上的一些说法，需要调整 <code>~/.font.conf</code> </p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&#39;1.0&#39;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE fontconfig SYSTEM &#39;fonts.dtd&#39;&gt;</span>
+<span class="nt">&lt;fontconfig&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;font&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">mode=</span><span class="s">&quot;assign&quot;</span> <span class="na">name=</span><span class="s">&quot;autohint&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bool&gt;</span>false<span class="nt">&lt;/bool&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;font&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">mode=</span><span class="s">&quot;assign&quot;</span> <span class="na">name=</span><span class="s">&quot;rgba&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;const&gt;</span>rgb<span class="nt">&lt;/const&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;font&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">mode=</span><span class="s">&quot;assign&quot;</span> <span class="na">name=</span><span class="s">&quot;hinting&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bool&gt;</span>true<span class="nt">&lt;/bool&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;font&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">mode=</span><span class="s">&quot;assign&quot;</span> <span class="na">name=</span><span class="s">&quot;hintstyle&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;const&gt;</span>hintmedium<span class="nt">&lt;/const&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;font&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">mode=</span><span class="s">&quot;assign&quot;</span> <span class="na">name=</span><span class="s">&quot;antialias&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bool&gt;</span>true<span class="nt">&lt;/bool&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+<span class="nt">&lt;/fontconfig&gt;</span>
+</pre></div>
+
+
+<p>然后，退出重新登录，字体生效。调整过之后，字体会好看一点～</p>
+<p>另外，在 http://www.lulinux.com/archives/278 有一个打包好的脚本，用了微软雅黑和宋体，简单好用。</p>
+            </div><!-- /.entry-content -->
+            <div class="comments">
+              <h3>Comments</h3>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_identifier = "adjust-ubuntu-fonts.html";
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://zenmass.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="/blog/about">About</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="http://fengyc.github.io/blog/category/blog.html">blog</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/fyingcai/">Weibo</a></li>
+    <li><a href="https://github.com/fengyc/">Github</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/fengyc/" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'zenmass';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/libs/gumby.min.js"></script>
+  <script src="http://fengyc.github.io/blog/theme/js/plugins.js"></script>
+</body>
+</html>

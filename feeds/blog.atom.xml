@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mass 9</title><link href="http://fengyc.github.io/blog/" rel="alternate"></link><link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" rel="self"></link><id>http://fengyc.github.io/blog/</id><updated>2015-07-13T21:20:00+08:00</updated><entry><title>参与 github 开源项目开发</title><link href="http://fengyc.github.io/blog/fork-github-project.html" rel="alternate"></link><updated>2015-07-13T21:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-13:blog/fork-github-project.html</id><summary type="html">&lt;p&gt;开源是一种态度，只要想参与，都可以向开源社区贡献力量。参与到开源并不只是提交代码，还可以以很多方式参与，如提交 bug ，给出建议，帮助更新文档，协助进行本地化等等。再加上现在有 github 这样方便的工具，参与到开源其实是很简单的事情。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mass 9</title><link href="http://fengyc.github.io/blog/" rel="alternate"></link><link href="http://fengyc.github.io/blog/feeds/blog.atom.xml" rel="self"></link><id>http://fengyc.github.io/blog/</id><updated>2015-07-17T11:20:00+08:00</updated><entry><title>调整 ubuntu 的字体</title><link href="http://fengyc.github.io/blog/adjust-ubuntu-fonts.html" rel="alternate"></link><updated>2015-07-17T11:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-17:blog/adjust-ubuntu-fonts.html</id><summary type="html">&lt;p&gt;安装完 Ubuntu 桌面版本的系统后，在默认情况下，字体的显示效果不是很好，会有模糊等现象。&lt;/p&gt;
+&lt;p&gt;So ，如果想调整一下字体，首先安装一些中文字体：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install fonts-wqy-zenhei
+sudo apt-get install fonts-wqy-microhei
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这两个文泉驿字体能满足大部分的需求了，对于码农来说，最好还加一个 Adobe 的 source code pro 字体，这个字体用来显示等宽或代码时效果非常好&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip -O source-code-pro-1.017R.zip
+unzip source-code-pro-1.017R.zip
+sudo mkdir -p /usr/share/fonts/opentype
+sudo cp source-code-pro-1.017R /usr/share/fonts/opentype
+sudo fc-cache -f -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装了字体之后，使用 unity-tweak-tools 调整字体&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install unity-tweak-tool
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在 unity-tweak-tools 的字体选项中，将 monospace font 改成 source-code-pro，然后调整次像素平滑（hinting）为 sligtly等。&lt;/p&gt;
+&lt;p&gt;按照网上的一些说法，需要调整 &lt;code&gt;~/.font.conf&lt;/code&gt; &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39;?&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!DOCTYPE fontconfig SYSTEM &amp;#39;fonts.dtd&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;fontconfig&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;match&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;font&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;edit&lt;/span&gt; &lt;span class="na"&gt;mode=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;assign&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;autohint&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;bool&amp;gt;&lt;/span&gt;false&lt;span class="nt"&gt;&amp;lt;/bool&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/edit&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;match&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;font&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;edit&lt;/span&gt; &lt;span class="na"&gt;mode=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;assign&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rgba&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;const&amp;gt;&lt;/span&gt;rgb&lt;span class="nt"&gt;&amp;lt;/const&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/edit&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;match&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;font&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;edit&lt;/span&gt; &lt;span class="na"&gt;mode=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;assign&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hinting&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;bool&amp;gt;&lt;/span&gt;true&lt;span class="nt"&gt;&amp;lt;/bool&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/edit&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;match&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;font&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;edit&lt;/span&gt; &lt;span class="na"&gt;mode=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;assign&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hintstyle&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;const&amp;gt;&lt;/span&gt;hintmedium&lt;span class="nt"&gt;&amp;lt;/const&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/edit&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;match&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;font&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;edit&lt;/span&gt; &lt;span class="na"&gt;mode=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;assign&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;antialias&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;bool&amp;gt;&lt;/span&gt;true&lt;span class="nt"&gt;&amp;lt;/bool&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/edit&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/match&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/fontconfig&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后，退出重新登录，字体生效。调整过之后，字体会好看一点～&lt;/p&gt;
+&lt;p&gt;另外，在 http://www.lulinux.com/archives/278 有一个打包好的脚本，用了微软雅黑和宋体，简单好用。&lt;/p&gt;</summary><category term="blog"></category></entry><entry><title>参与 github 开源项目开发</title><link href="http://fengyc.github.io/blog/fork-github-project.html" rel="alternate"></link><updated>2015-07-13T21:20:00+08:00</updated><author><name>Yingcai FENG</name></author><id>tag:fengyc.github.io,2015-07-13:blog/fork-github-project.html</id><summary type="html">&lt;p&gt;开源是一种态度，只要想参与，都可以向开源社区贡献力量。参与到开源并不只是提交代码，还可以以很多方式参与，如提交 bug ，给出建议，帮助更新文档，协助进行本地化等等。再加上现在有 github 这样方便的工具，参与到开源其实是很简单的事情。&lt;/p&gt;
 &lt;p&gt;github 上有很多的开源项目，并提供一些辅助的工具来帮助项目发展，如 Issues 、 Pull requests 、 Wiki 、 GitHub Pages 等等。&lt;/p&gt;
 &lt;p&gt;github 使用 git 作为 VCS 系统。如果想向项目贡献代码，还是需要了解 git 的基本使用，最好还了解 gitflow、gerrit 等等周边工具，很多项目会同时使用这些工具来作为分支流程管理标准和代码审核、bug跟踪管理等等。&lt;/p&gt;
 &lt;p&gt;github 上通过 fork 克隆一个项目到自己的 github 库，然后自己用 git 下载下来修改，修改完毕后，更新到 github 上。然后可以通过创建一个 Pull request 给项目维护者，让维护者把你的代码合并进项目里面。&lt;/p&gt;
